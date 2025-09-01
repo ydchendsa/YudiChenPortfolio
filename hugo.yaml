@@ -1,0 +1,30 @@
+baseURL: "https://example.org/"
+languageCode: en-us
+title: "Yudi Chen"
+theme: ["PaperMod"]
+
+params:
+  profileMode:
+    enabled: true
+    title: "Yudi Chen Portfolio"
+    subtitle: "Data Science & Dashboards"
+    imageUrl: "/images/profile.jpg"       # Put your image in static/images/
+    imageTitle: "Yudi Chen"
+    imageWidth: 160
+    imageHeight: 160
+
+  socialIcons:
+    - name: linkedin
+      url: "https://www.linkedin.com/in/yudichen529/"
+    - name: github
+      url: "https://github.com/yourusername"
+    - name: cv
+      url: "/cv/"
+
+menu:
+  main:
+    - identifier: archive
+      name: Archive
+      url: /archive/
+      weight: 10
+
