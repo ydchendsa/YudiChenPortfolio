@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Machine Learning | Yudi Chen</title>
+<meta name="keywords" content="">
+<meta name="description" content="Explore Marvel Studio&rsquo;s Reddit dataset, EDA, NLP, and ML analyses, including business insights and revenue projections.">
+<meta name="author" content="">
+<link rel="canonical" href="https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/ml/">
+<link crossorigin="anonymous" href="/YudiChenPortfolio/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css" integrity="sha256-j&#43;ECM6cGvIfy4Is8&#43;XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ydchendsa.github.io/YudiChenPortfolio/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ydchendsa.github.io/YudiChenPortfolio/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ydchendsa.github.io/YudiChenPortfolio/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://ydchendsa.github.io/YudiChenPortfolio/apple-touch-icon.png">
+<link rel="mask-icon" href="https://ydchendsa.github.io/YudiChenPortfolio/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/ml/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/ml/">
+  <meta property="og:site_name" content="Yudi Chen">
+  <meta property="og:title" content="Machine Learning">
+  <meta property="og:description" content="Explore Marvel Studio’s Reddit dataset, EDA, NLP, and ML analyses, including business insights and revenue projections.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Machine Learning">
+<meta name="twitter:description" content="Explore Marvel Studio&rsquo;s Reddit dataset, EDA, NLP, and ML analyses, including business insights and revenue projections.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "https://ydchendsa.github.io/YudiChenPortfolio/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Spark Application: MCU Market \u0026 Strategy",
+      "item": "https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Machine Learning",
+      "item": "https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/ml/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Machine Learning",
+  "name": "Machine Learning",
+  "description": "Explore Marvel Studio\u0026rsquo;s Reddit dataset, EDA, NLP, and ML analyses, including business insights and revenue projections.",
+  "keywords": [
+    
+  ],
+  "articleBody": "Executive Summary Sentiment analysis provides insights into the mindset of Reddit users, or Marvel Cinematic Universe (MCU) fans. This analysis focuses on main submissions rather than comments because some comments may be unrelated to the initial post.\nThe Bag of Words (BOW) model predicts more positive reviews than negative or neutral, suggesting that from January 2021 to April 2022, MCU business strategy was on track. Stock price is another indicator of company performance. Netflix stock was used to train the model because Disney+ and Netflix share similar market variables. The actual Disney stock price was higher than predicted due to Disney’s broader portfolio (parks, products) and the early 2021 Covid recovery.\nBusiness Questions Answered:\nGOAL 1: Do Marvel Cinematic Universe launches positively correlate with Walt Disney stock price? GOAL 2: Does Reddit comment popularity affect Marvel Cinematic Universe movies’ box office revenue? Analysis Report BOW for Main Post Sentiment Prediction Using the Keras TextVectorization layer with ngrams, outputs were converted to “multi_hot” vectors. The custom Keras model includes three Dense layers and three Dropout layers. Two models were compared:\nAdam optimizer + Sparse Categorical Cross Entropy\nF1 Score: 0.9890 AUC Score: 0.9895 Adam optimizer + Mean Squared Error\nF1 Score: 0.3533 AUC Score: 0.4438 Sparse Categorical Cross Entropy outperforms MSE, providing accurate sentiment predictions.\nConfusion Matrix for Sentiment Prediction\nAccuracy for Train and Validation\nROC Curve for Sentiment Prediction\nThe ROC curve measures the true positive rate against the false positive rate. High AUC indicates strong model performance in distinguishing between positive, neutral, and negative sentiments.\nDisney Stock Price Prediction Using Keras A Keras model predicted Disney’s stock price using 10 years of Netflix stock data. The model achieved:\nR-Squared: 0.9899 RMSE: 3.16 The model uses Huber Loss, which is less sensitive to outliers than MSE. Actual Disney stock exceeded predictions from February to April 2021 due to Covid recovery and MCU announcements.\nStock Trend Prediction Using Random Forest Pipeline Variables included in the analysis:\nNumber of submissions per day Number of comments Submission and comment length Number of positive, negative, and neutral comments Submission and comment scores Submission weekday and sentiment (one-hot encoded) Stock trend definition: “up” if today’s price \u003e previous day, “down” otherwise. Weekends and holidays excluded.\nRandom Forest Models Comparison:\nModel Accuracy ROC AUC model1 (max_depth=5; num_trees=100) 0.725 0.705 0.784 model2 (max_depth=10; num_trees=100) 0.922 0.916 0.948 model3 (max_depth=10; num_trees=500) 0.923 0.917 0.949 Model 3 performs best. Confusion matrix shows “down” predictions are stronger, indicating negative sentiment may correlate more with stock trends. ROC and AUC \u003e 0.9 confirms the model’s predictive power.\nFeature Importance Insights:\nTop 5 important variables: submission length, count of positive/neutral sentiments, comment sentiment, and weekday of submission. Positive sentiments correlate more with stock trends. Longer submissions also predict trends.\nObserving peak periods (e.g., Feb–Apr 2021), higher text length and positive sentiment indicate increased investor confidence, likely contributing to stock price growth. The classification model could potentially support investment decisions in Disney stock.\nCode Code for Sentiment Prediction by Keras Code for Disney Stock Price Prediction by Keras Code for Stock Trend Prediction through Pipeline ",
+  "wordCount" : "512",
+  "inLanguage": "en",
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "0001-01-01T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/ml/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Yudi Chen",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ydchendsa.github.io/YudiChenPortfolio/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ydchendsa.github.io/YudiChenPortfolio/" accesskey="h" title="Yudi Chen (Alt + H)">Yudi Chen</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ydchendsa.github.io/YudiChenPortfolio/intro" title="Introduction">
+                    <span>Introduction</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ydchendsa.github.io/YudiChenPortfolio/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Machine Learning
+    </h1>
+    <div class="post-meta">
+
+</div>
+  </header> 
+  <div class="post-content"><h3 id="executive-summary">Executive Summary<a hidden class="anchor" aria-hidden="true" href="#executive-summary">#</a></h3>
+<p>Sentiment analysis provides insights into the mindset of Reddit users, or Marvel Cinematic Universe (MCU) fans. This analysis focuses on main submissions rather than comments because some comments may be unrelated to the initial post.</p>
+<p>The Bag of Words (BOW) model predicts more positive reviews than negative or neutral, suggesting that from January 2021 to April 2022, MCU business strategy was on track. Stock price is another indicator of company performance. Netflix stock was used to train the model because Disney+ and Netflix share similar market variables. The actual Disney stock price was higher than predicted due to Disney&rsquo;s broader portfolio (parks, products) and the early 2021 Covid recovery.</p>
+<p><strong>Business Questions Answered:</strong></p>
+<ul>
+<li><strong>GOAL 1:</strong> Do Marvel Cinematic Universe launches positively correlate with Walt Disney stock price?</li>
+<li><strong>GOAL 2:</strong> Does Reddit comment popularity affect Marvel Cinematic Universe movies&rsquo; box office revenue?</li>
+</ul>
+<hr>
+<h3 id="analysis-report">Analysis Report<a hidden class="anchor" aria-hidden="true" href="#analysis-report">#</a></h3>
+<h4 id="bow-for-main-post-sentiment-prediction">BOW for Main Post Sentiment Prediction<a hidden class="anchor" aria-hidden="true" href="#bow-for-main-post-sentiment-prediction">#</a></h4>
+<p>Using the Keras <code>TextVectorization</code> layer with ngrams, outputs were converted to &ldquo;multi_hot&rdquo; vectors. The custom Keras model includes three Dense layers and three Dropout layers. Two models were compared:</p>
+<ol>
+<li>
+<p><strong>Adam optimizer + Sparse Categorical Cross Entropy</strong></p>
+<ul>
+<li>F1 Score: 0.9890</li>
+<li>AUC Score: 0.9895</li>
+</ul>
+</li>
+<li>
+<p><strong>Adam optimizer + Mean Squared Error</strong></p>
+<ul>
+<li>F1 Score: 0.3533</li>
+<li>AUC Score: 0.4438</li>
+</ul>
+</li>
+</ol>
+<p>Sparse Categorical Cross Entropy outperforms MSE, providing accurate sentiment predictions.</p>
+<p><strong>Confusion Matrix for Sentiment Prediction</strong></p>
+<p><img alt="Confusion Matrix" loading="lazy" src="https://jixy.georgetown.domains/ANLY502/mlimg/cmkeras.png"></p>
+<p><strong>Accuracy for Train and Validation</strong></p>
+<p><img alt="Accuracy Plot" loading="lazy" src="https://jixy.georgetown.domains/ANLY502/mlimg/acckeras.png"></p>
+<p><strong>ROC Curve for Sentiment Prediction</strong></p>
+<p>The ROC curve measures the true positive rate against the false positive rate. High AUC indicates strong model performance in distinguishing between positive, neutral, and negative sentiments.</p>
+<hr>
+<h4 id="disney-stock-price-prediction-using-keras">Disney Stock Price Prediction Using Keras<a hidden class="anchor" aria-hidden="true" href="#disney-stock-price-prediction-using-keras">#</a></h4>
+<p>A Keras model predicted Disney&rsquo;s stock price using 10 years of Netflix stock data. The model achieved:</p>
+<ul>
+<li><strong>R-Squared:</strong> 0.9899</li>
+<li><strong>RMSE:</strong> 3.16</li>
+</ul>
+<p>The model uses <strong>Huber Loss</strong>, which is less sensitive to outliers than MSE. Actual Disney stock exceeded predictions from February to April 2021 due to Covid recovery and MCU announcements.</p>
+<hr>
+<h4 id="stock-trend-prediction-using-random-forest-pipeline">Stock Trend Prediction Using Random Forest Pipeline<a hidden class="anchor" aria-hidden="true" href="#stock-trend-prediction-using-random-forest-pipeline">#</a></h4>
+<p>Variables included in the analysis:</p>
+<ul>
+<li>Number of submissions per day</li>
+<li>Number of comments</li>
+<li>Submission and comment length</li>
+<li>Number of positive, negative, and neutral comments</li>
+<li>Submission and comment scores</li>
+<li>Submission weekday and sentiment (one-hot encoded)</li>
+</ul>
+<p>Stock trend definition: &ldquo;up&rdquo; if today&rsquo;s price &gt; previous day, &ldquo;down&rdquo; otherwise. Weekends and holidays excluded.</p>
+<p><strong>Random Forest Models Comparison:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Model</th>
+          <th>Accuracy</th>
+          <th>ROC</th>
+          <th>AUC</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>model1 (max_depth=5; num_trees=100)</td>
+          <td>0.725</td>
+          <td>0.705</td>
+          <td>0.784</td>
+      </tr>
+      <tr>
+          <td>model2 (max_depth=10; num_trees=100)</td>
+          <td>0.922</td>
+          <td>0.916</td>
+          <td>0.948</td>
+      </tr>
+      <tr>
+          <td>model3 (max_depth=10; num_trees=500)</td>
+          <td>0.923</td>
+          <td>0.917</td>
+          <td>0.949</td>
+      </tr>
+  </tbody>
+</table>
+<p>Model 3 performs best. Confusion matrix shows &ldquo;down&rdquo; predictions are stronger, indicating negative sentiment may correlate more with stock trends. ROC and AUC &gt; 0.9 confirms the model’s predictive power.</p>
+<p><img alt="Feature Importance" loading="lazy" src="https://jixy.georgetown.domains/ANLY502/mlimg/ml_plot11.png"></p>
+<p><strong>Feature Importance Insights:</strong></p>
+<p>Top 5 important variables: submission length, count of positive/neutral sentiments, comment sentiment, and weekday of submission. Positive sentiments correlate more with stock trends. Longer submissions also predict trends.</p>
+<p>Observing peak periods (e.g., Feb–Apr 2021), higher text length and positive sentiment indicate increased investor confidence, likely contributing to stock price growth. The classification model could potentially support investment decisions in Disney stock.</p>
+<hr>
+<h3 id="code">Code<a hidden class="anchor" aria-hidden="true" href="#code">#</a></h3>
+<ul>
+<li><a href="https://jixy.georgetown.domains/ANLY502/mlimg/ml_sentiment.html">Code for Sentiment Prediction by Keras</a></li>
+<li><a href="https://jixy.georgetown.domains/ANLY502/mlimg/ml_stock.html">Code for Disney Stock Price Prediction by Keras</a></li>
+<li><a href="https://jixy.georgetown.domains/ANLY502/mlimg/ml_popularity.html">Code for Stock Trend Prediction through Pipeline</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://ydchendsa.github.io/YudiChenPortfolio/">Yudi Chen</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

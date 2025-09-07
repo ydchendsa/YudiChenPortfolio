@@ -1,11 +1,53 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Yudi Chen Portfolio on Yudi Chen</title>
-    <link>http://localhost:1313/YudiChenPortfolio/</link>
-    <description>Recent content in Yudi Chen Portfolio on Yudi Chen</description>
+    <title>Yudi Chen</title>
+    <link>https://ydchendsa.github.io/YudiChenPortfolio/</link>
+    <description>Recent content on Yudi Chen</description>
     <generator>Hugo -- 0.149.0</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/YudiChenPortfolio/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ydchendsa.github.io/YudiChenPortfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction </title>
+      <link>https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/introduction/</guid>
+      <description>Launched with &lt;em&gt;Iron Man&lt;/em&gt; in 2008, the MCU has transformed the film industry and earned over $21 billion, examined here through data analysis.</description>
+    </item>
+    <item>
+      <title>Exploratory Data Analysis</title>
+      <link>https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/eda/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/eda/</guid>
+      <description>Marvel fans actively engaged with new characters and productions, demonstrating the success of Marvel’s transition for the past two decades.</description>
+    </item>
+    <item>
+      <title>Machine Learning</title>
+      <link>https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/ml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/ml/</guid>
+      <description>Explore Marvel Studio&amp;rsquo;s Reddit dataset, EDA, NLP, and ML analyses, including business insights and revenue projections.</description>
+    </item>
+    <item>
+      <title>Natural Language Processing </title>
+      <link>https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/nlp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/nlp/</guid>
+      <description>MCU Potential Future Market and Business Strategy Analysis</description>
+    </item>
+    <item>
+      <title>Conclusion </title>
+      <link>https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/conclusion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/conclusion/</guid>
+      <description>MCU Potential Future Market and Business Strategy Analysis</description>
+    </item>
+    <item>
+      <title>Welcome to My Site</title>
+      <link>https://ydchendsa.github.io/YudiChenPortfolio/intro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ydchendsa.github.io/YudiChenPortfolio/intro/</guid>
+      <description>This is my homepage description</description>
+    </item>
   </channel>
 </rss>

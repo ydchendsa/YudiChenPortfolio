@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/YudiChenPortfolio/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=YudiChenPortfolio/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Spark Application: MCU Market &amp; Strategy | Yudi Chen</title>
+<meta name="keywords" content="">
+<meta name="description" content="Explore Marvel Studios’ Reddit dataset with PySpark to perform EDA, NLP, and ML analyses, uncovering business insights and revenue projections.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/YudiChenPortfolio/projects/pyspark/">
+<link crossorigin="anonymous" href="/YudiChenPortfolio/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css" integrity="sha256-j&#43;ECM6cGvIfy4Is8&#43;XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/YudiChenPortfolio/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/YudiChenPortfolio/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/YudiChenPortfolio/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/YudiChenPortfolio/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/YudiChenPortfolio/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/YudiChenPortfolio/projects/pyspark/index.xml">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/YudiChenPortfolio/projects/pyspark/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/YudiChenPortfolio/" accesskey="h" title="Yudi Chen (Alt + H)">Yudi Chen</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/YudiChenPortfolio/intro" title="Introduction">
+                    <span>Introduction</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/YudiChenPortfolio/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Spark Application: MCU Market &amp; Strategy
+  </h1>
+</header>
+<div class="post-content"><p>Over a decade ago, the release of Iron Man sparked a change in the cinematic industry. The film, based on Marvel Comics, was quickly embraced by fans and led to the creation of the Marvel Cinematic Universe (MCU) by The Walt Disney Company. In 2009, Disney acquired Marvel for $4 billion, introducing a host of other superheroes, such as Captain America and Thor, through trilogies and sagas. Disney has created different phases and universes within the MCU to continue producing new movies and generate revenue. This has contributed to the company&rsquo;s collective grossed revenue of 21 billion dollars, according to Forbes.</p>
+<p>With a diverse range of superheroes to choose from, the public has varying opinions on each character, influenced by factors such as the actor portraying them, their gender, and their powers. One of the most famous heroes, Spider-Man, was originally introduced by Sony Pictures, who bought the copyright from Marvel Comics in 1999. However, the character has since been reintroduced by MCU in multiple movies.</p>
+<p>To answer the question of the impact of The Walt Disney Company on the entertainment industry, it is necessary to analyze the stock price, actors&rsquo; popularity, and online streaming.</p>
+<hr>
+<h2 id="tools--technique">Tools &amp; Technique<a hidden class="anchor" aria-hidden="true" href="#tools--technique">#</a></h2>
+<p>Use <strong>Spark</strong> on <strong>Azure Databricks</strong> with <strong>Python</strong> to analyze, transform, and process data, producing analytical datasets.</p>
+<p>Data Sources</p>
+<ul>
+<li>Reddit posts related to <strong>Marvel Studios</strong></li>
+<li><strong>Disney stock prices</strong></li>
+</ul>
+<p>Data Preprocessing</p>
+<ul>
+<li>Keyword extraction using <strong>regex</strong></li>
+<li>Data quality checks</li>
+<li>Standardization and transformations</li>
+<li>Creation of <strong>dummy variables</strong></li>
+</ul>
+<p>Analytical Methods</p>
+<ul>
+<li><strong>EDA:</strong> Capture interesting patterns and insights</li>
+<li><strong>ML:</strong> Sentiment analysis and predictive analysis</li>
+<li><strong>NLP:</strong> Keyword extraction and topic modeling</li>
+</ul>
+<hr>
+<h2 id="features">Features<a hidden class="anchor" aria-hidden="true" href="#features">#</a></h2>
+<ul>
+<li><strong>Exploratory Data Analysis (EDA):</strong> Visualizes user behavior such as post length, submission times, and discussion frequency.</li>
+<li><strong>Machine Learning:</strong> Predicts Disney stock price trends and analyzes post sentiment patterns using ML models.</li>
+<li><strong>Natural Language Processing (NLP):</strong> Performs keyword extraction, topic modeling, and sentiment analysis on popular characters.</li>
+<li><strong>Interactive Visualizations:</strong> Generates charts and dashboards to summarize insights from data.</li>
+<li><strong>Business Insights:</strong> Provides analysis of MCU fan engagement and market trends to guide potential business strategies.</li>
+</ul>
+<hr>
+<h2 id="source-code--dataset">Source Code &amp; Dataset<a hidden class="anchor" aria-hidden="true" href="#source-code--dataset">#</a></h2>
+<p>All raw &amp; analytical datasets and code are available at <a href="https://github.com/ydchendsa/PysparkApplication" title="Visit the project on GitHub">GitHub Repository</a></p>
+<hr>
+<h2 id="content">Content<a hidden class="anchor" aria-hidden="true" href="#content">#</a></h2>
+
+
+</div>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> </p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to " href="http://localhost:1313/YudiChenPortfolio/projects/pyspark/plots/ml_plot2/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> </p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to " href="http://localhost:1313/YudiChenPortfolio/projects/pyspark/plots/rockeras/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> </p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to " href="http://localhost:1313/YudiChenPortfolio/projects/pyspark/plots/stock/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> </p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to " href="http://localhost:1313/YudiChenPortfolio/projects/pyspark/plots/tfidf/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> </p>
+  </div>
+  <footer class="entry-footer"></footer>
+  <a class="entry-link" aria-label="post link to " href="http://localhost:1313/YudiChenPortfolio/projects/pyspark/plots/top10/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="http://localhost:1313/YudiChenPortfolio/projects/pyspark/">
+      «&nbsp;Prev&nbsp;
+    </a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/YudiChenPortfolio/">Yudi Chen</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -2,10 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/YudiChenPortfolio/categories/</loc>
+    <loc>https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/introduction/</loc>
   </url><url>
-    <loc>http://localhost:1313/YudiChenPortfolio/tags/</loc>
+    <loc>https://ydchendsa.github.io/YudiChenPortfolio/projects/</loc>
   </url><url>
-    <loc>http://localhost:1313/YudiChenPortfolio/</loc>
+    <loc>https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/</loc>
+  </url><url>
+    <loc>https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/eda/</loc>
+  </url><url>
+    <loc>https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/ml/</loc>
+  </url><url>
+    <loc>https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/nlp/</loc>
+  </url><url>
+    <loc>https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/conclusion/</loc>
+  </url><url>
+    <loc>https://ydchendsa.github.io/YudiChenPortfolio/categories/</loc>
+  </url><url>
+    <loc>https://ydchendsa.github.io/YudiChenPortfolio/tags/</loc>
+  </url><url>
+    <loc>https://ydchendsa.github.io/YudiChenPortfolio/intro/</loc>
+  </url><url>
+    <loc>https://ydchendsa.github.io/YudiChenPortfolio/</loc>
   </url>
 </urlset>
