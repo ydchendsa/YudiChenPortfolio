@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>Natural Language Processing  | Yudi Chen</title>
 <meta name="keywords" content="">
-<meta name="description" content="MCU Potential Future Market and Business Strategy Analysis">
+<meta name="description" content="Reddit activity reveals trending content and audience interests, showing strong streaming growth potential even amid fluctuations in sentiment throughout the day.">
 <meta name="author" content="">
 <link rel="canonical" href="https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/nlp/">
 <link crossorigin="anonymous" href="/YudiChenPortfolio/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css" integrity="sha256-j&#43;ECM6cGvIfy4Is8&#43;XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as="style">
@@ -58,13 +58,13 @@
 </noscript><meta property="og:url" content="https://ydchendsa.github.io/YudiChenPortfolio/projects/pyspark/nlp/">
   <meta property="og:site_name" content="Yudi Chen">
   <meta property="og:title" content="Natural Language Processing ">
-  <meta property="og:description" content="MCU Potential Future Market and Business Strategy Analysis">
+  <meta property="og:description" content="Reddit activity reveals trending content and audience interests, showing strong streaming growth potential even amid fluctuations in sentiment throughout the day.">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Natural Language Processing ">
-<meta name="twitter:description" content="MCU Potential Future Market and Business Strategy Analysis">
+<meta name="twitter:description" content="Reddit activity reveals trending content and audience interests, showing strong streaming growth potential even amid fluctuations in sentiment throughout the day.">
 
 
 <script type="application/ld+json">
@@ -99,12 +99,12 @@
   "@type": "BlogPosting",
   "headline": "Natural Language Processing ",
   "name": "Natural Language Processing ",
-  "description": "MCU Potential Future Market and Business Strategy Analysis",
+  "description": "Reddit activity reveals trending content and audience interests, showing strong streaming growth potential even amid fluctuations in sentiment throughout the day.",
   "keywords": [
     
   ],
-  "articleBody": "Executive Summary Most people might think that the most hyped character in Reddit chat is Captain America, Spider-Man, or Iron Man. However, the analysis shows Wanda Vision appears most often. This is likely due to the Disney+ show WandaVision (early 2021, 6.5M domestic views) and the 2022 film Doctor Strange in the Multiverse of Madness, where Wanda plays a lead role.\nMCU’s continuous storytelling encourages viewers to follow each installment. Having a woman-led streaming show also broadens the audience.\nSentiment analysis across time shows users express more negative/low sentiment in the afternoon and before bedtime compared to mornings. Yet, Disney+ subscriptions rose steadily, especially during evening hours when Reddit activity peaked — suggesting strong potential for growth in streaming.\nAnalysis Report External Data Dataset 1: DIS_stock.csv\nPeriod: Jan 2021 – Aug 2022 Fields: Open, Close, Volume (Yahoo Finance) Dataset 2: Marvel_box.csv\nFields: title, year, runtime, imdb_rating, director, main cast, domestic/foreign gross revenue Distribution of Text Lengths Submissions are generally longer than comments (expected since they start discussions). Users rarely write very long texts. Most Common Words After cleaning (tokenizing, lemmatizing, removing stopwords), top words:\nmovie, mcu, avenger, spiderman, character, wanda, marvel, show, vision, captain.\nTop 10 Words by TF-IDF TF-IDF highlights relevance of terms. Highest scores:\nwanda, kid, vision, mcu, live, character.\nConfirms Wanda/Vision centrality.\nK-Means Clustering Used Word2Vec + Elbow Method → best K ≈ 6. But for hidden topics, LDA (topic modeling) is more effective. Topic Modeling LDA finds hidden topics with coherence scoring. Best number of topics ≈ 11. Topics matched TF-IDF and WordCloud (Loki, Hulk, Iron Man, Wanda, Vision, Spider-Man). 👉 Interactive LDA Model\nSentiment Analysis Pipeline: length limit → remove punctuation/stopwords → lemmatization → sentiment model.\nSubmissions: Positive \u003e Negative across weekdays. Comments: Same trend, strongest engagement on Fri–Sat. Time of day: Night \u0026 morning = more positive; afternoon \u0026 evening = lower. Summary Tables Table 1: Submission sentiment by weekday Table 2: Comment sentiment by weekday Table 3: Sentiment by time interval (night, morning, afternoon, evening) Table 4: Topic × Sentiment matrix Findings:\nAvengers \u0026 Spider-Man → positive Black Widow \u0026 Venom → more negative Longer/higher-score comments align with popular topics Key Questions Answered 1. Do fans prefer old MCU characters?\nNot necessarily. Wanda \u0026 Spider-Man dominate mentions.\n3. Do minorities/diverse heroes impact MCU?\nYes — WandaVision \u0026 Black Widow show positive sentiment, indicating market potential.\n4. Sentiment toward MCU streaming products?\nWandaVision (Disney+) was well-received. Deadpool also strong. Black Widow negative (linked to Johansson–Disney conflict).\n",
-  "wordCount" : "412",
+  "articleBody": "While many might expect Captain America, Spider-Man, or Iron Man to dominate Reddit chatter, analysis shows that Wanda Maximoff (WandaVision) appears most frequently. This spike is likely driven by the Disney+ show WandaVision (early 2021, 6.5M domestic views) and the 2022 film Doctor Strange in the Multiverse of Madness, in which Wanda plays a lead role.\nThe MCU’s ongoing, interconnected storytelling encourages audiences to follow each installment, while a woman-led streaming show broadens the viewer base.\nSentiment analysis over time reveals more negative or low sentiment in the afternoon and before bedtime compared to mornings. Despite this, Disney+ subscriptions grew steadily, particularly during evening hours when Reddit activity peaked — highlighting strong potential for further streaming growth.\nAnalysis Report External Data Dataset 1: DIS_stock.csv\nPeriod: Jan 2021 – Aug 2022 Fields: Open, Close, Volume (Yahoo Finance) Dataset 2: Marvel_box.csv\nFields: title, year, runtime, imdb_rating, director, main cast, domestic/foreign gross revenue Distribution of Text Lengths Submissions are generally longer than comments (expected since they start discussions). Users rarely write very long texts. Most Common Words After cleaning (tokenizing, lemmatizing, removing stopwords), top words:\nmovie, mcu, avenger, spiderman, character, wanda, marvel, show, vision, captain.\nTop 10 Words by TF-IDF TF-IDF highlights relevance of terms. Highest scores:\nwanda, kid, vision, mcu, live, character.\nConfirms Wanda/Vision centrality.\nK-Means Clustering Used Word2Vec + Elbow Method → best K ≈ 6. But for hidden topics, LDA (topic modeling) is more effective. Topic Modeling LDA finds hidden topics with coherence scoring. Best number of topics ≈ 11. Topics matched TF-IDF and WordCloud (Loki, Hulk, Iron Man, Wanda, Vision, Spider-Man). Sentiment Analysis Pipeline: length limit → remove punctuation/stopwords → lemmatization → sentiment model.\nSubmissions: Positive \u003e Negative across weekdays. Comments: Same trend, strongest engagement on Fri–Sat. Time of day: Night \u0026 morning = more positive; afternoon \u0026 evening = lower. Key Questions Answered 1. Do fans prefer old MCU characters?\nNot necessarily. Wanda \u0026 Spider-Man dominate mentions.\n3. Do minorities/diverse heroes impact MCU?\nYes — WandaVision \u0026 Black Widow show positive sentiment, indicating market potential.\n4. Sentiment toward MCU streaming products?\nWandaVision (Disney+) was well-received. Deadpool also strong. Black Widow negative (linked to Johansson–Disney conflict).\n",
+  "wordCount" : "357",
   "inLanguage": "en",
   "datePublished": "0001-01-01T00:00:00Z",
   "dateModified": "0001-01-01T00:00:00Z",
@@ -185,17 +185,13 @@
     <h1 class="post-title entry-hint-parent">
       Natural Language Processing 
     </h1>
-    <div class="post-description">
-      MCU Potential Future Market and Business Strategy Analysis
-    </div>
     <div class="post-meta">
 
 </div>
   </header> 
-  <div class="post-content"><h3 id="executive-summary">Executive Summary<a hidden class="anchor" aria-hidden="true" href="#executive-summary">#</a></h3>
-<p>Most people might think that the most hyped character in Reddit chat is Captain America, Spider-Man, or Iron Man. However, the analysis shows Wanda Vision appears most often. This is likely due to the Disney+ show <em>WandaVision</em> (early 2021, 6.5M domestic views) and the 2022 film <em>Doctor Strange in the Multiverse of Madness</em>, where Wanda plays a lead role.</p>
-<p>MCU’s continuous storytelling encourages viewers to follow each installment. Having a woman-led streaming show also broadens the audience.</p>
-<p>Sentiment analysis across time shows users express more negative/low sentiment in the <strong>afternoon</strong> and <strong>before bedtime</strong> compared to mornings. Yet, Disney+ subscriptions rose steadily, especially during evening hours when Reddit activity peaked — suggesting strong potential for growth in streaming.</p>
+  <div class="post-content"><p>While many might expect Captain America, Spider-Man, or Iron Man to dominate Reddit chatter, analysis shows that Wanda Maximoff (WandaVision) appears most frequently. This spike is likely driven by the Disney+ show WandaVision (early 2021, 6.5M domestic views) and the 2022 film Doctor Strange in the Multiverse of Madness, in which Wanda plays a lead role.</p>
+<p>The MCU’s ongoing, interconnected storytelling encourages audiences to follow each installment, while a woman-led streaming show broadens the viewer base.</p>
+<p>Sentiment analysis over time reveals more negative or low sentiment in the afternoon and before bedtime compared to mornings. Despite this, Disney+ subscriptions grew steadily, particularly during evening hours when Reddit activity peaked — highlighting strong potential for further streaming growth.</p>
 <hr>
 <h2 id="analysis-report">Analysis Report<a hidden class="anchor" aria-hidden="true" href="#analysis-report">#</a></h2>
 <h3 id="external-data">External Data<a hidden class="anchor" aria-hidden="true" href="#external-data">#</a></h3>
@@ -216,30 +212,39 @@
 </ul>
 <hr>
 <h3 id="most-common-words">Most Common Words<a hidden class="anchor" aria-hidden="true" href="#most-common-words">#</a></h3>
-<p><img alt="Word Cloud" loading="lazy" src="https://jixy.georgetown.domains/ANLY502/nlpimg/wordcloud.png"></p>
+<p><img alt="Word Cloud" loading="lazy" src="https://raw.githubusercontent.com/ydchendsa/imgs/main/pyspark/plots/wc.png"></p>
 <p>After cleaning (tokenizing, lemmatizing, removing stopwords), top words:<br>
 <code>movie, mcu, avenger, spiderman, character, wanda, marvel, show, vision, captain</code>.</p>
 <hr>
 <h3 id="top-10-words-by-tf-idf">Top 10 Words by TF-IDF<a hidden class="anchor" aria-hidden="true" href="#top-10-words-by-tf-idf">#</a></h3>
-<p>TF-IDF highlights relevance of terms. Highest scores:<br>
+<p><img alt="TFIDF" loading="lazy" src="https://raw.githubusercontent.com/ydchendsa/imgs/main/pyspark/plots/tfidf.png"><br>
+TF-IDF highlights relevance of terms. Highest scores:<br>
 <code>wanda, kid, vision, mcu, live, character</code>.</p>
 <p>Confirms Wanda/Vision centrality.</p>
 <hr>
 <h3 id="k-means-clustering">K-Means Clustering<a hidden class="anchor" aria-hidden="true" href="#k-means-clustering">#</a></h3>
-<p><img alt="Two Plots" loading="lazy" src="https://jixy.georgetown.domains/ANLY502/nlpimg/twofig1.png"></p>
+<p><img alt="KMeans1" loading="lazy" src="https://raw.githubusercontent.com/ydchendsa/imgs/main/pyspark/plots/plt4.png"><br>
+<img alt="KMeans2" loading="lazy" src="https://raw.githubusercontent.com/ydchendsa/imgs/main/pyspark/plots/plt5.png"></p>
 <ul>
 <li>Used Word2Vec + Elbow Method → best K ≈ 6.</li>
 <li>But for hidden topics, LDA (topic modeling) is more effective.</li>
 </ul>
 <hr>
 <h3 id="topic-modeling">Topic Modeling<a hidden class="anchor" aria-hidden="true" href="#topic-modeling">#</a></h3>
-<p><img alt="LDA Results" loading="lazy" src="https://jixy.georgetown.domains/ANLY502/nlpimg/twofig2.png"></p>
+<p><img alt="LDA1" loading="lazy" src="https://raw.githubusercontent.com/ydchendsa/imgs/main/pyspark/plots/plt1.png"><br>
+<img alt="LDA2" loading="lazy" src="https://raw.githubusercontent.com/ydchendsa/imgs/main/pyspark/plots/plt3.png"></p>
 <ul>
 <li>LDA finds hidden topics with coherence scoring.</li>
 <li>Best number of topics ≈ 11.</li>
 <li>Topics matched TF-IDF and WordCloud (Loki, Hulk, Iron Man, Wanda, Vision, Spider-Man).</li>
 </ul>
-<p>👉 <a href="https://jixy.georgetown.domains/ANLY502/nlpimg/">Interactive LDA Model</a></p>
+<iframe 
+  src="/YudiChenPortfolio/files/lda_viz.html" 
+  width="750" 
+  height="500" 
+  frameborder="0" 
+  allowfullscreen>
+</iframe>
 <hr>
 <h3 id="sentiment-analysis">Sentiment Analysis<a hidden class="anchor" aria-hidden="true" href="#sentiment-analysis">#</a></h3>
 <p>Pipeline: length limit → remove punctuation/stopwords → lemmatization → sentiment model.</p>
@@ -248,21 +253,7 @@
 <li><strong>Comments:</strong> Same trend, strongest engagement on Fri–Sat.</li>
 <li><strong>Time of day:</strong> Night &amp; morning = more positive; afternoon &amp; evening = lower.</li>
 </ul>
-<p><img alt="Sentiment Time Interval" loading="lazy" src="https://jixy.georgetown.domains/ANLY502/nlpimg/fig3.png"></p>
-<h4 id="summary-tables">Summary Tables<a hidden class="anchor" aria-hidden="true" href="#summary-tables">#</a></h4>
-<ul>
-<li>Table 1: Submission sentiment by weekday</li>
-<li>Table 2: Comment sentiment by weekday</li>
-<li>Table 3: Sentiment by time interval (night, morning, afternoon, evening)</li>
-<li>Table 4: Topic × Sentiment matrix</li>
-</ul>
-<p><img alt="Submission Sentiment Matrix" loading="lazy" src="https://jixy.georgetown.domains/ANLY502/nlpimg/table4.png"></p>
-<p>Findings:</p>
-<ul>
-<li>Avengers &amp; Spider-Man → positive</li>
-<li>Black Widow &amp; Venom → more negative</li>
-<li>Longer/higher-score comments align with popular topics</li>
-</ul>
+<p><img alt="Sentiment Time Interval" loading="lazy" src="https://raw.githubusercontent.com/ydchendsa/imgs/main/pyspark/plots/fig3.png"></p>
 <hr>
 <h2 id="key-questions-answered">Key Questions Answered<a hidden class="anchor" aria-hidden="true" href="#key-questions-answered">#</a></h2>
 <p><strong>1. Do fans prefer old MCU characters?</strong><br>
